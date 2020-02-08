@@ -1,0 +1,93 @@
+﻿@{
+
+    ViewBag.Title = "Contact";
+}
+
+<section id="subintro">
+    <div class="jumbotron subhead" id="overview">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <h3><i class="m-icon-big-swapright m-icon-white"></i> İletişim</h3>
+                    
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@{ 
+    Html.RenderAction("ContactPartial", "Home");
+}
+
+
+                <div class="spacer30"></div>
+
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
+
+
+                <form   class="contactForm">
+                    <div class="row">
+                        <div class="span4 form-group">
+                            <input type="text" name="Name" class="input-block-level"  id="Name" placeholder="İsminiz"  />
+                           
+                        </div>
+
+                        <div class="span4 form-group">
+                            <input type="email" class="input-block-level"  name="Email" id="Email" placeholder="Mail Adresiniz"  />
+                           
+                        </div>
+                        <div class="span8 form-group">
+                            <input type="text" class="input-block-level"  name="Subject" id="Subject" placeholder="Konu"  />
+                            
+                        </div>
+                        <div class="span8 form-group">
+                            <textarea class="input-block-level" id="Messages"  name="Messages" rows="5"  placeholder="Mesajınız"></textarea>
+                           
+                            <div style="text-align: center;">
+                                <button class="btn btn-medium btn-success" type="submit" id="gonder">Gönder</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <script src="~/Content/Site/assets/js/jquery-1.8.2.min.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#gonder").click(function () {
+            var name = $("#Name").val();
+            var email = $("#Email").val();
+            var subject = $("#Subject").val();
+            var messages = $("#Messages").val();
+            $.ajax({
+                url: '/Home/Messages/',
+                data: { Name:name, Email:email, Subject:subject, Messages:messages },
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.result == 2) {
+                        alert(data.message);  
+                    }
+                    if (data.result==1) {
+                         alert("Lütfen Gerekli Alanları Doldurun")
+                    }
+                       
+
+                                   
+               
+                },
+
+               
+            });
+        });
+    })
+
+                </script>

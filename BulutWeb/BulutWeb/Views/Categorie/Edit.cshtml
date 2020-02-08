@@ -1,0 +1,44 @@
+﻿@model BulutWeb.Models.Model.Category
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center> <h2>Kategori Düzenleme Ekranı</h2></center>
+
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                
+              
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.CategoryId)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Kaydet" class="btn btn-primary" />
+                        <a href="/Categorie/"> <input type="button" value="Vazgeç" class="btn btn-danger" /></a>
+
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+      

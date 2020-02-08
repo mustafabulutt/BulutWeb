@@ -1,0 +1,14 @@
+﻿@model ICollection<BulutWeb.Models.Model.Category>
+@{
+    Layout = null;
+}
+
+
+@foreach (var item in Model)
+{
+    <ul>
+        <li><a href="/Home/CategoryDetails/@item.CategoryId">@item.Name</a></li>
+
+    </ul>
+}
+

@@ -1,0 +1,154 @@
+﻿@model BulutWeb.Models.Model.Blog
+<section id="subintro">
+    <div class="jumbotron subhead" id="overview">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <h3><i class="m-icon-big-swapright m-icon-white"></i> Blog Gönderisi</h3>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="maincontent">
+    <div class="container">
+        <div class="row">
+
+            <div class="span8">
+
+                <!-- start article full post -->
+                <article class="blog-post">
+                    <div class="tooltip-demo headline">
+                        <h4>@Model.Title</h4>
+
+                        <span class="comment"><a href="#" data-rel="tooltip" data-placement="top" title="@Model.comments.Count() Yorum">@Model.comments.Count() Adet Yorum Mevcut</a></span>
+                    </div>
+                    <div class="row">
+                        <div class="span8">
+                            <a href="#"><img class="img-responsive" style="width:1000px; height:350px" src="@Model.Image" alt="@Model.Title" /></a>
+                        </div>
+                        <div class="span6">
+                            <ul class="post-meta">
+
+                                <li class="last"><i class="icon-tags"></i> <span><a href="/Home/CategoryDetails/@Model.CategoryId">@Model.category.Name </a></span></li>
+                            </ul>
+                            <div class="clearfix"></div>
+
+
+                            @Html.Raw(Model.Content)
+
+
+                        </div>
+                    </div>
+
+
+                </article>
+
+                <!-- end article full post -->
+                <h4 >Yorumlar</h4>
+                @{
+                    Html.RenderAction("DetailsCommentsPartial", "Home");
+                }
+
+
+                <div id="p1" class="comment-post">
+                    <h4>Yorum Yap</h4>
+
+
+                    <form >
+
+
+                        <div class="row">
+                            <div class="span3">
+                                <label>İsminiz <span>*</span></label>
+                                <input type="text" required id="Name" class="input-block-level" placeholder="İsminiz" />
+                            </div>
+                            <div class="span3">
+                                <label>Mail Adresiniz <span>*</span></label>
+                                <input type="text" required name="Email" id="Email" class="input-block-level" placeholder="Mail Adresiniz" />
+                            </div>
+
+                            <div class="span8">
+                                <label>Yorumunuz <span>*</span></label>
+                                <textarea rows="9" required name="Comment" id="Comment" class="input-block-level" placeholder="Yorumunuz"></textarea>
+                                <input type="button" class="btn btn-success btn-medium" name="gonder" id="gonder" value="gonder" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="span4">
+                <aside>
+
+                    <div class="widget">
+                        <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>&nbsp;&nbsp;Kategoriler</h4>
+                        @{
+                            Html.RenderAction("BlogSCategoriePartial", "Home");
+                        }
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="widget">
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active"><a href="#recent" data-toggle="tab">Son Yazılar</a></li>
+
+
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade in active" id="recent">
+                                <ul class="recent">
+                                    @{
+                                        Html.RenderAction("LatestBlogPartial", "Home");
+                                    }
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="~/Content/Site/assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#gonder").click(function () {
+            var name = $("#Name").val();
+            var email = $("#Email").val();
+            var comment = $("#Comment").val();
+
+            $.ajax({
+                url: '/Home/Comments/',
+                data: { Name:name, Email:email, Comment:comment, blogıd:@Model.BlogId},
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.result != 1) {
+
+                   alert("Yorumunuz Admin Tarafından Onaylanınca Yayınlanacaktır");
+                   $("#p1").hide(1000);
+
+                    }
+                    else
+                    alert("Lütfen Gerekli Alanları Doldurun");
+                },
+
+
+
+            });
+        });
+    })
+
+</script>
+
+
+<br />
+<br />

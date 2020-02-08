@@ -1,0 +1,23 @@
+﻿@model ICollection<BulutWeb.Models.Model.Comments>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <ul class="media-list">
+        <li class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="/Content/Site/assets/img/small-avatar.png" alt="" />
+            </a>
+            <div class="media-body">
+                <h5 class="media-heading"><a href="#">@item.Name</a></h5>
+                <p>@item.Comment</p>
+
+                <!-- Nested media object -->
+
+            </div>
+        </li>
+
+    </ul>
+}
+

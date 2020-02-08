@@ -1,0 +1,36 @@
+﻿@model ICollection<BulutWeb.Models.Model.Services>
+
+@{
+    Layout = null;
+}
+
+@{ 
+    int i = 0;
+}
+
+
+@foreach (var item in Model)
+{
+    i++;
+
+   string a = "in";
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#@i">
+                @i. @item.Title
+            </a>
+        </div>
+        <div id="@i" class="accordion-body collapse " >
+            <div class="accordion-inner">
+                <img src="@item.Image" class="alignleft" style="width:150px;height:120px;" alt="" />
+                
+                <p>
+                    @item.Description
+                </p>
+                
+            </div>
+        </div>
+    </div>
+}
+

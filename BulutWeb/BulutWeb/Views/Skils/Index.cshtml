@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.Skils>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center>  <h2>Yetenekler</h2></center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+
+        <p>
+            <a href="/Skils/Create/">   <input type="button" class="btn btn-primary" value="Ekle" />  </a>      </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SkilLevel)
+                </th>
+                <th>
+
+                    İşlemler
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SkilLevel)
+                    </td>
+                    <td>
+                        <a href="/Skils/Edit/@item.Id">   <input type="button" class="btn btn-primary" value="Güncelle" /></a>
+                        <a href="/Skils/Delete/@item.Id">   <input type="button" class="btn btn-danger" value="sil" /></a>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</div>

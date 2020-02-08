@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section id="subintro">
+    <div class="jumbotron subhead" id="overview">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <h3><i class="m-icon-big-swapright m-icon-white"></i> Hizmetlerimiz</h3>
+                  
+                </div>
+                <div class="span4">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="maincontent">
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+              @{ 
+                  Html.RenderAction("VideoPartial", "Home");
+              }
+            </div>
+
+            <div class="span6">
+                <h4>Hizmetlerimiz</h4>
+                <div class="accordion" id="accordion2">
+                  
+                    @{ 
+                        Html.RenderAction("ServicesPartial2", "Home");
+                    }
+              
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>

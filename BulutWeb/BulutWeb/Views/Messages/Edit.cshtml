@@ -1,0 +1,71 @@
+﻿@model BulutWeb.Models.Model.Message
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script type="text/javascript">
+    CKEDITOR.replace('editör')
+</script>
+
+<center> <h2>Mesaj İçeriği</h2></center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" name="Name" class="form-control" readonly value="@Model.Name" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" name="Email" class="form-control" readonly value="@Model.Email" />
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" name="Subject" class="form-control" readonly value="@Model.Subject" />
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Messages, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <textarea name="Content" class="ckeditor" readonly>@Model.Messages</textarea>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a href="/Messages/"> <input type="button" value="Geri Dön" class="btn btn-primary" /></a>
+                        
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

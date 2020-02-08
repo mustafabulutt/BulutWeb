@@ -1,0 +1,38 @@
+﻿@model BulutWeb.Models.Model.Referances
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center> <h2>Refranslarımız Ekleme Alanı</h2> </center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+        @using (Html.BeginForm("Create", "Referance", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+               
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" accept=".png,.jpg,.jpeg" name="Image" class="form-control" required value="" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Kaydet" class="btn btn-primary" />
+                        <a href="/Referance/">    <input type="button" value="Vazgeç" class="btn btn-danger" /></a>
+
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+       

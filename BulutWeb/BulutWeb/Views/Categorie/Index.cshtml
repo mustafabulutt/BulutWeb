@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <Center> <h2>Kategoriler</h2></Center>
+
+    <div class="blank-page-content">
+
+        <!-- Error Page Info -->
+        <div class="outer-w3-agile mt-3">
+
+            <p>
+                <a href="/Categorie/Create/">   <input type="button" class="btn btn-primary" value="Kategori Ekle" /></a>
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                   
+                    <th>
+                        İşlemler
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        
+                        <td>
+                            <a href="/Categorie/Edit/@item.CategoryId">  <input type="button" class="btn btn-primary" value="Güncelle" /></a>
+                            <a href="/Categorie/Delete/@item.CategoryId">  <input type="button" class="btn btn-danger" value="Sil" /></a>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+</div>

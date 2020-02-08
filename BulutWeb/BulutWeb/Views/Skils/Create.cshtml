@@ -1,0 +1,44 @@
+﻿@model BulutWeb.Models.Model.Skils
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <Center><h2>Yetenek Ekleme Ekranı</h2></Center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="Title" required placeholder="Yetenek İsmi : Örnek Html" value="" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" placeholder="Yetenek Seviyesi  : Örnek(95)" name="SkilLevel" value="" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Kaydet" class="btn btn-primary" />
+                        <a href="/Skils/">   <input type="button" value="Vazgeç" class="btn btn-danger" /></a>
+
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+    

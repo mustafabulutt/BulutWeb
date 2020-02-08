@@ -1,0 +1,80 @@
+﻿
+
+@{
+
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+<section id="intro">
+    <div class="jumbotron masthead">
+
+        <div class="container">
+            @{
+                Html.RenderAction("SliderPartial", "Home");
+            }
+        </div>
+    </div>
+
+
+</section>
+
+
+
+<!-- end tagline -->
+
+<section id="maincontent">
+    <div class="container">
+
+        <div class="row">
+            <div class="span3">
+                <br /><br /> <br /><br />
+                <h3 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapright m-icon-white"></i></span>&nbsp;&nbsp;Hizmetlerimiz</h3>
+
+            </div>
+
+            @{
+                Html.RenderAction("ServicesPartial", "Home");
+            }
+
+
+        </div>
+
+    </div>
+</section>
+
+
+<section id="bottom">
+    <div class="container">
+
+        <!-- divider -->
+        <div class="row">
+            <div class="span12">
+                <div class="divider"></div>
+            </div>
+        </div>
+        <!-- end divider -->
+
+        <div class="row">
+            <div class="span12">
+                <h3><a class="btn btn-large btn-success" href="#"><i class="m-icon-big-swapdown m-icon-white"></i></a>  Blog Yazıları</h3>
+
+                <div id="latest-work" class="carousel btleft">
+                    <div class="carousel-wrapper">
+
+                        <ul class="portfolio-home da-thumbs">
+
+                            @{
+                                Html.RenderAction("BlogHomePartial", "Home");
+                            }
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

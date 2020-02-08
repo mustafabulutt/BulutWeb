@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.Referances>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center> <h2>Referanslarımız</h2></center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+        <p>
+            <a href="/Referance/Create/">   <input type="button" class="btn btn-primary" value="Ekle" /></a>
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    Referans Görseli
+                </th>
+                <th>
+
+                    Referansı Kaldır
+
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Image" class="img-responsive" style="width:100px; height:100px" />
+                    </td>
+                    <td>
+
+                        <a href="/Referance/Delete/@item.Id">  <input type="button" class="btn btn-danger" value="Sil" /></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+    </div>

@@ -1,0 +1,22 @@
+﻿@model BulutWeb.Models.Model.Video
+
+@{
+    Layout = null;
+}
+
+   
+
+
+    <style type="text/css">
+        iframe {
+            width: 550px;
+            height: 400px;
+        }
+
+       
+    </style>
+
+
+<div class="well iframe">
+   @Html.Raw(Model.Url)
+</div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center> <h2>İletişim Bilgileri</h2> </center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+      
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.address)
+                </th>
+                
+                <th>İşlemler</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                  
+                    <td>
+                        <a href="/Contact/Edit/@item.Id">  <input type="button" class="btn btn-primary" value="Düzenle" /></a>
+                     
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</div>

@@ -1,0 +1,74 @@
+﻿@model BulutWeb.Models.Model.Blog
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <script type="text/javascript">
+    CKEDITOR.replace('editör')
+    </script>
+    <center> <h2>Blog Post Düzenleme Ekranı</h2></center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+
+
+        @using (Html.BeginForm("Edit","Blog" ,FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.BlogId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <textarea name="Content" class="ckeditor" required>@Model.Content</textarea>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Image,"Blog Görseli", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <img src="@Model.Image" class="img-responsive"  style="width:100px"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="file" accept=".jpg,.png,.jpeg" name="Image"  class="form-control" value="" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryId, "Mevcut Kategori", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+                    <a href="/Blog/">    <input type="button" value="Vazgeç" class="btn btn-danger" /></a>
+
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+    </div>
+        

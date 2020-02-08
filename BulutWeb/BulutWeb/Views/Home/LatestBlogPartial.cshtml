@@ -1,0 +1,15 @@
+﻿@model ICollection<BulutWeb.Models.Model.Blog>
+
+@{
+    Layout = null;
+}
+
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="/Home/BlogDetail/@item.BlogId"><img src="@item.Image" class="alignleft" style="width:50px;height:40px" alt="" /></a>
+        <h6><a href="/Home/BlogDetail/@item.BlogId">@item.Title</a></h6>
+       
+    </li>
+}

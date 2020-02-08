@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @{ 
+        Html.RenderAction("LayoutHeadPartial", "Home");
+    }
+
+    <!-- styles -->
+    <link href="/Content/Site/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/Content/Site/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/Content/Site/assets/css/docs.css" rel="stylesheet">
+    <link href="/Content/Site/assets/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/Content/Site/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="/Content/Site/assets/css/camera.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300|Open+Sans:400,300,300italic,400italic" rel="stylesheet">
+    <link href="/Content/Site/assets/css/style.css" rel="stylesheet">
+    <link href="/Content/Site/assets/color/success.css" rel="stylesheet">
+
+  
+
+
+</head>
+
+<body>
+
+    <header>
+        <!-- Navbar
+        ================================================== -->
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- logo -->
+                    <a class="brand logo" href="/Home/">
+                        @{ 
+                            Html.RenderAction("LayoutLogoPartial", "Home");
+                        }
+                    </a>
+                    <!-- end logo -->
+                    <!-- top menu -->
+                    <div>
+                        <nav>
+                            <ul class="nav topnav">
+                                <li class="dropdown success">
+                                    <a href="/Home/"><i class="icon-home icon-white"></i> Ana Sayfa</a>
+                                    
+                                </li>
+                                <li class="dropdown primary">
+                                    <a href="/Home/About"><i class="icon-star icon-white"></i> Hakkımızda</a>
+                                   
+                                </li>
+                                <li class="dropdown danger">
+                                    <a href="/Home/Services/"><i class="icon-leaf icon-white"></i> Hizmelerimiz</a>
+                                 
+                                </li>
+                            
+                                <li class="dropdown info">
+                                    <a href="/Home/Blog/"><i class="icon-bullhorn icon-white"></i> Blog</a>
+                                   
+                                </li>
+                                <li class="inverse">
+                                    <a href="/Home/Contact/"><i class="icon-envelope icon-white"></i> İletişim</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- end menu -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+   @RenderBody()
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+        
+
+        <div class="verybottom">
+            <div class="container">
+                <div class="row">
+                    <div class="span6">
+                        <p>&copy; Bulut Web </p>
+                    </div>
+                    <div class="span6">
+                        <div class="pull-right">
+                            <div class="credits">
+                              
+                                Designed by <a href="https://mbulut.com/">MBulut</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="/Content/Site/assets/js/jquery-1.8.2.min.js"></script>
+    <script src="/Content/Site/assets/js/jquery.easing.1.3.js"></script>
+    <script src="/Content/Site/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="/Content/Site/assets/js/modernizr.js"></script>
+    <script src="/Content/Site/assets/js/bootstrap.js"></script>
+    <script src="/Content/Site/assets/js/jquery.elastislide.js"></script>
+    <script src="/Content/Site/assets/js/jquery.flexslider.js"></script>
+    <script src="/Content/Site/assets/js/jquery.prettyPhoto.js"></script>
+    <script src="/Content/Site/assets/js/application.js"></script>
+    <script src="/Content/Site/assets/js/hover/jquery-hover-effect.js"></script>
+    <script src="/Content/Site/assets/js/hover/setting.js"></script>
+    <script src="/Content/Site/assets/js/camera/camera.min.js"></script>
+    <script src="/Content/Site/assets/js/camera/setting.js"></script>
+
+    <!-- Template Custom JavaScript File -->
+    <script src="/Content/Site/assets/js/custom.js"></script>
+
+</body>
+
+</html>

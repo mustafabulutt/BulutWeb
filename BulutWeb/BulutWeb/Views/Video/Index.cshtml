@@ -1,0 +1,41 @@
+﻿@model BulutWeb.Models.Model.Video
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center>  <h2>Video Ekle</h2></center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+               
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Url,"Youtube Embed Kodu", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" name="Url" class="form-control" required value="@Model.Url" />
+                       
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Kaydet" class="btn btn-primary" />
+                        <a href="/Admin/">  <input type="button" value="Ana Sayfaya Git" class="btn btn-danger" /></a>
+
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+   

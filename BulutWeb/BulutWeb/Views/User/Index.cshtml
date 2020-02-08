@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.Admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <Center> <h2>Admin Ekleme Ekranı</h2></Center>
+
+
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+        <p>
+            <a href="/User/Create/">   <input type="button" class="btn btn-primary" value="Ekle" /></a> <br />
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        ***********
+                    </td>
+                    <td>
+                        <a href="/User/Edit/@item.Id">   <input type="button" class="btn btn-success" value="Düzenle" /></a> 
+                        <a href="/User/Delete/@item.Id">   <input type="button" class="btn btn-danger" value="Sil" /></a> <br />
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.Blog>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+        <li>
+            <div class="thumbnail" style="width:300px;height:300px">
+
+
+
+                <div class="image-wrapp">
+                    <img style="width:300px;height:250px;" src="@item.Image" alt="@item.Title" title="" />
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                    </article>
+                </div>
+                <div class="caption">
+                    <a href="/Home/BlogDetail/@item.BlogId">
+                        <h5>@item.Title</h5>
+                    </a>
+                </div>
+
+    </div>
+    </li>
+
+
+}
+

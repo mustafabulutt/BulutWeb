@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.Services>
+@{
+    Layout = null;
+}
+@{
+    int i = 0;
+}
+@foreach (var item in Model)
+{
+    i++;
+
+    <div class="span3">
+        @if (i == 1)
+        {
+            <div class="well well-danger box" style="width:250px; height:250px;">
+
+                <h3>@item.Title</h3>
+                <p>
+                    @item.Description
+                </p>
+
+            </div>
+        }
+
+        @if (i == 2)
+        {
+
+            <div class="well well-primary box" style="width:250px; height:250px;">
+
+                <h3>@item.Title</h3>
+                <p>
+                    @item.Description
+                </p>
+
+            </div>
+        }
+
+        @if (i == 3)
+        {
+            <div class="well well-success box" style="width:250px; height:250px;">
+
+                <h3>@item.Title</h3>
+                <p>
+                    @item.Description
+                </p>
+
+            </div>
+        }
+
+    </div>
+}

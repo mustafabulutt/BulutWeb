@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.Services>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center> <h2>Hizmetler Listesi</h2></center>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+        <p>
+            <a href="/Services/Create">  <input type="button" class="btn btn-primary" value="Ekle" /></a>
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Image" class="img-responsive"  style="width:100px;height:100px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a href="/Services/Edit/@item.Id">  <input type="button" class="btn btn-primary" value="Güncelle" /></a>
+                        <a href="/Services/Delete/@item.Id"> <input type="button" class="btn btn-danger" value="Sil" /></a>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</div>

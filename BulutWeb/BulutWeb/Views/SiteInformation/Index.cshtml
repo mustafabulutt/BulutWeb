@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BulutWeb.Models.Model.SiteInformation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center> <h2>Site Kimlik Bilgileri</h2></center>
+
+
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+       
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Logo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SiteIcon)
+                </th>
+                <th>
+                    İşlemler
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Logo" class="img-responsive" style="width:50px;height:50px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        <img src="@item.SiteIcon" class="img-responsive" style="width:50px;height:50px;" />
+                    </td>
+                    <td>
+                        <a href="/SiteInformation/Edit/@item.Id">    <input type="button" class="btn btn-primary" value=" Düzenle" /></a>
+                       
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</div>

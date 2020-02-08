@@ -1,0 +1,54 @@
+﻿@model BulutWeb.Models.Model.Slider
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <center> <h2>Slider Düzenleme Ekranı</h2></center>
+
+
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+    <div class="outer-w3-agile mt-3">
+        @using (Html.BeginForm("Edit", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+           
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <img src="@Model.Image" style="width:200px;height:200px;" class="img-responsive" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="file" name="Image" class="form-control" accept=".png,.jpg,.jpeg" value="@Model.Image" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                <textarea class="form-control" name="Description">@Model.Description</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+    </div>
+    
